@@ -29,7 +29,8 @@ class Sparklines extends PureComponent {
         height: 60,
         //Scale the graphic content of the given element non-uniformly if necessary such that the element's bounding box exactly matches the viewport rectangle.
         preserveAspectRatio: 'none', //https://www.w3.org/TR/SVG/coords.html#PreserveAspectRatioAttribute
-        margin: 2
+        margin: 2,
+        min: 0
     };
 
     constructor(props) {
