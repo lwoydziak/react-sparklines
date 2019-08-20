@@ -14,9 +14,7 @@ export default class SparklinesLine extends React.Component {
     render() {
         const { points, width, height, margin, color, style } = this.props;
 
-        const linePoints = points
-            .map(p => [p.x, p.y])
-            .reduce((a, b) => a.concat(b));
+        const linePoints = points.map(p => [p.x, p.y]).reduce((a, b) => a.concat(b));
 
         const closePolyPoints = [
             points[points.length - 1].x,
@@ -32,6 +30,7 @@ export default class SparklinesLine extends React.Component {
         const lineStyle = {
             stroke: color || style.stroke || 'slategray',
             strokeWidth: style.strokeWidth || '1',
+            strokeOpacity: style.strokeOpacity || '1',
             strokeLinejoin: style.strokeLinejoin || 'round',
             strokeLinecap: style.strokeLinecap || 'round',
             fill: 'none'

@@ -1463,6 +1463,7 @@ var SparklinesLine = function (_React$Component) {
             var lineStyle = {
                 stroke: color || style.stroke || 'slategray',
                 strokeWidth: style.strokeWidth || '1',
+                strokeOpacity: style.strokeOpacity || '1',
                 strokeLinejoin: style.strokeLinejoin || 'round',
                 strokeLinecap: style.strokeLinecap || 'round',
                 fill: 'none'
