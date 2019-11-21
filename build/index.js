@@ -1476,9 +1476,28 @@ var SparklinesLine = function (_React$Component) {
                 pointerEvents: 'none'
             };
 
+            var toolTipsStyle = style.hideToolTips == null || style.hideToolTips ? { fill: 'none', stroke: 'none' } : fillStyle;
+
+            var tooltips = points.map(function (p, i) {
+                return _react2.default.createElement('circle', {
+                    key: i,
+                    cx: p.x,
+                    cy: p.y,
+                    r: 2,
+                    style: fillStyle,
+                    onMouseEnter: function onMouseEnter(e) {
+                        return onMouseMove('enter', data[i], p);
+                    },
+                    onClick: function onClick(e) {
+                        return onMouseMove('click', data[i], p);
+                    }
+                });
+            });
+
             return _react2.default.createElement(
                 'g',
                 null,
+                tooltips,
                 _react2.default.createElement('polyline', { points: fillPoints.join(' '), style: fillStyle }),
                 _react2.default.createElement('polyline', { points: linePoints.join(' '), style: lineStyle })
             );
@@ -1493,7 +1512,8 @@ SparklinesLine.propTypes = {
     style: _propTypes2.default.object
 };
 SparklinesLine.defaultProps = {
-    style: {}
+    style: {},
+    onMouseMove: function onMouseMove() {}
 };
 exports.default = SparklinesLine;
 

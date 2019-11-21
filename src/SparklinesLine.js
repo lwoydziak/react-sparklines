@@ -8,7 +8,8 @@ export default class SparklinesLine extends React.Component {
     };
 
     static defaultProps = {
-        style: {}
+        style: {},
+        onMouseMove: function onMouseMove() {}
     };
 
     render() {
@@ -43,8 +44,26 @@ export default class SparklinesLine extends React.Component {
             pointerEvents: 'none'
         };
 
+        var toolTipsStyle = style.hideToolTips == null || style.hideToolTips ? {fill: 'none', stroke: 'none'} : fillStyle;
+
+        const tooltips = points.map((p, i) => {
+            return (
+              <circle
+                key={i}
+                cx={p.x}
+                cy={p.y}
+                r={2}
+                style={fillStyle}
+                onMouseEnter={e => onMouseMove('enter', data[i], p)}
+                onClick={e => onMouseMove('click', data[i], p)}
+              />
+            );
+        });
+
+
         return (
             <g>
+                {tooltips}
                 <polyline points={fillPoints.join(' ')} style={fillStyle} />
                 <polyline points={linePoints.join(' ')} style={lineStyle} />
             </g>
