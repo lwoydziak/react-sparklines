@@ -53,7 +53,7 @@ export default class SparklinesLine extends React.Component {
                 cx={p.x}
                 cy={p.y}
                 r={2}
-                style={fillStyle}
+                style={toolTipsStyle}
                 onMouseEnter={e => onMouseMove('enter', data[i], p)}
                 onClick={e => onMouseMove('click', data[i], p)}
               />
