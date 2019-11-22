@@ -1484,7 +1484,7 @@ var SparklinesLine = function (_React$Component) {
                     cx: p.x,
                     cy: p.y,
                     r: 2,
-                    style: fillStyle,
+                    style: toolTipsStyle,
                     onMouseEnter: function onMouseEnter(e) {
                         return onMouseMove('enter', data[i], p);
                     },
