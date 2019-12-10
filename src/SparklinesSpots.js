@@ -31,13 +31,13 @@ export default class SparklinesSpots extends React.Component {
 
         const { points, width, height, size, style, spotColors } = this.props;
 
-        const startSpot = <circle
+        const startSpot = <circle className="sparklines-spots-start"
                             cx={points[0].x}
                             cy={points[0].y}
                             r={size}
                             style={style} />
 
-        const endSpot = <circle
+        const endSpot = <circle className="sparklines-spots-end"
                             cx={points[points.length - 1].x}
                             cy={points[points.length - 1].y}
                             r={size}

@@ -66,8 +66,8 @@ export default class SparklinesCurve extends React.Component {
 
         return (
             <g>
-                <path d={"M"+fillPoints.join(' ')} style={fillStyle} />
-                <path d={"M"+linePoints.join(' ')} style={lineStyle} />
+                <path className="sparklines-curve-fill" d={"M"+fillPoints.join(' ')} style={fillStyle} />
+                <path className="sparklines-curve-line" d={"M"+linePoints.join(' ')} style={lineStyle} />
             </g>
         )
     }

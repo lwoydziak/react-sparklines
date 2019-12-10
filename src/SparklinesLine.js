@@ -48,7 +48,7 @@ export default class SparklinesLine extends React.Component {
 
         const tooltips = points.map((p, i) => {
             return (
-              <circle
+              <circle className="sparklines-line"
                 key={i}
                 cx={p.x}
                 cy={p.y}

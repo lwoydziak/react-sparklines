@@ -22,7 +22,7 @@ export default class SparklinesNormalBand extends React.Component {
         const dataStdev = stdev(ypoints);
 
         return (
-            <rect x={points[0].x} y={dataMean - dataStdev + margin}
+            <rect className="sparklines-normal-band" x={points[0].x} y={dataMean - dataStdev + margin}
                 width={points[points.length - 1].x - points[0].x} height={stdev * 2}
                 style={style} />
         )

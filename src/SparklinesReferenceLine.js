@@ -23,7 +23,7 @@ export default class SparklinesReferenceLine extends React.Component {
         const y = type == 'custom' ? value : dataProcessing[type](ypoints);
 
         return (
-            <line
+            <line className="sparklines-reference-line"
                 x1={points[0].x} y1={y + margin}
                 x2={points[points.length - 1].x} y2={y + margin}
                 style={style} />

@@ -73,7 +73,7 @@ class Sparklines extends PureComponent {
         if (svgHeight > 0) svgOpts.height = svgHeight;
 
         return (
-            <svg {...svgOpts}>
+            <svg className="sparklines-canvas"  {...svgOpts}>
                 {React.Children.map(this.props.children, function(child) {
                     return React.cloneElement(child, {
                         points,

@@ -30,7 +30,7 @@ export default class SparklinesBars extends React.Component {
         return (
             <g transform="scale(1,-1)">
                 {points.map((p, i) => (
-                    <rect
+                    <rect className="sparklines-bar"
                         key={i}
                         x={p.x - (width + strokeWidth) / 2}
                         y={-height}

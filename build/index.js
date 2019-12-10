@@ -605,6 +605,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.SparklinesNormalBand = exports.SparklinesReferenceLine = exports.SparklinesSpots = exports.SparklinesBars = exports.SparklinesCurve = exports.SparklinesLine = exports.Sparklines = undefined;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _propTypes = __webpack_require__(0);
@@ -699,7 +701,7 @@ var Sparklines = function (_PureComponent) {
 
             return _react2.default.createElement(
                 'svg',
-                svgOpts,
+                _extends({ className: 'sparklines-canvas' }, svgOpts),
                 _react2.default.Children.map(this.props.children, function (child) {
                     return _react2.default.cloneElement(child, {
                         points: points,
@@ -1479,7 +1481,7 @@ var SparklinesLine = function (_React$Component) {
             var toolTipsStyle = style.hideToolTips == null || style.hideToolTips ? { fill: 'none', stroke: 'none' } : fillStyle;
 
             var tooltips = points.map(function (p, i) {
-                return _react2.default.createElement('circle', {
+                return _react2.default.createElement('circle', { className: 'sparklines-line',
                     key: i,
                     cx: p.x,
                     cy: p.y,
@@ -1617,8 +1619,8 @@ var SparklinesCurve = function (_React$Component) {
             return _react2.default.createElement(
                 'g',
                 null,
-                _react2.default.createElement('path', { d: "M" + fillPoints.join(' '), style: fillStyle }),
-                _react2.default.createElement('path', { d: "M" + linePoints.join(' '), style: lineStyle })
+                _react2.default.createElement('path', { className: 'sparklines-curve-fill', d: "M" + fillPoints.join(' '), style: fillStyle }),
+                _react2.default.createElement('path', { className: 'sparklines-curve-line', d: "M" + linePoints.join(' '), style: lineStyle })
             );
         }
     }]);
@@ -1691,7 +1693,7 @@ var SparklinesBars = function (_React$Component) {
                 'g',
                 { transform: 'scale(1,-1)' },
                 points.map(function (p, i) {
-                    return _react2.default.createElement('rect', {
+                    return _react2.default.createElement('rect', { className: 'sparklines-bar',
                         key: i,
                         x: p.x - (width + strokeWidth) / 2,
                         y: -height,
@@ -1779,13 +1781,13 @@ var SparklinesSpots = function (_React$Component) {
                 spotColors = _props.spotColors;
 
 
-            var startSpot = _react2.default.createElement('circle', {
+            var startSpot = _react2.default.createElement('circle', { className: 'sparklines-spots-start',
                 cx: points[0].x,
                 cy: points[0].y,
                 r: size,
                 style: style });
 
-            var endSpot = _react2.default.createElement('circle', {
+            var endSpot = _react2.default.createElement('circle', { className: 'sparklines-spots-end',
                 cx: points[points.length - 1].x,
                 cy: points[points.length - 1].y,
                 r: size,
@@ -1878,7 +1880,7 @@ var SparklinesReferenceLine = function (_React$Component) {
             });
             var y = type == 'custom' ? value : dataProcessing[type](ypoints);
 
-            return _react2.default.createElement('line', {
+            return _react2.default.createElement('line', { className: 'sparklines-reference-line',
                 x1: points[0].x, y1: y + margin,
                 x2: points[points.length - 1].x, y2: y + margin,
                 style: style });
@@ -2074,7 +2076,7 @@ var SparklinesNormalBand = function (_React$Component) {
             var dataMean = (0, _mean2.default)(ypoints);
             var dataStdev = (0, _stdev2.default)(ypoints);
 
-            return _react2.default.createElement('rect', { x: points[0].x, y: dataMean - dataStdev + margin,
+            return _react2.default.createElement('rect', { className: 'sparklines-normal-band', x: points[0].x, y: dataMean - dataStdev + margin,
                 width: points[points.length - 1].x - points[0].x, height: _stdev2.default * 2,
                 style: style });
         }
