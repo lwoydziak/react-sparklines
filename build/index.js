@@ -1481,7 +1481,7 @@ var SparklinesLine = function (_React$Component) {
             var toolTipsStyle = style.hideToolTips == null || style.hideToolTips ? { fill: 'none', stroke: 'none' } : fillStyle;
 
             var tooltips = points.map(function (p, i) {
-                return _react2.default.createElement('circle', { className: 'sparklines-line',
+                return _react2.default.createElement('circle', { className: 'sparklines-line-tooltip-' + i.toString(),
                     key: i,
                     cx: p.x,
                     cy: p.y,
@@ -1500,8 +1500,8 @@ var SparklinesLine = function (_React$Component) {
                 'g',
                 null,
                 tooltips,
-                _react2.default.createElement('polyline', { points: fillPoints.join(' '), style: fillStyle }),
-                _react2.default.createElement('polyline', { points: linePoints.join(' '), style: lineStyle })
+                _react2.default.createElement('polyline', { className: 'sparklines-line-fill', points: fillPoints.join(' '), style: fillStyle }),
+                _react2.default.createElement('polyline', { className: 'sparklines-line', points: linePoints.join(' '), style: lineStyle })
             );
         }
     }]);

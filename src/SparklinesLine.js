@@ -48,7 +48,7 @@ export default class SparklinesLine extends React.Component {
 
         const tooltips = points.map((p, i) => {
             return (
-              <circle className="sparklines-line"
+              <circle className={'sparklines-line-tooltip-' + i.toString()}
                 key={i}
                 cx={p.x}
                 cy={p.y}
@@ -64,8 +64,8 @@ export default class SparklinesLine extends React.Component {
         return (
             <g>
                 {tooltips}
-                <polyline points={fillPoints.join(' ')} style={fillStyle} />
-                <polyline points={linePoints.join(' ')} style={lineStyle} />
+                <polyline className="sparklines-line-fill" points={fillPoints.join(' ')} style={fillStyle} />
+                <polyline className="sparklines-line" points={linePoints.join(' ')} style={lineStyle} />
             </g>
         );
     }
